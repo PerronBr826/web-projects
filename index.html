@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U07 RWD LAB | CSS Grid Holy Grail Layout</title>
+    <style>
+        /* TODO: Define the mobile-first grid container */
+        /* Use grid-template-areas for a single column: header, nav, content, side, footer */
 
+        :root {
+            --primary-color: wheat;
+            --secondary-color: rgb(226, 110, 43);
+        }
+
+        @media screen and (max-width: 800px) {
+            .container {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "main"
+                    "aside"
+                    "footer";
+                grid-template-rows: auto;
+                grid-template-columns: 100%;
+            }
+            
+        }
+        .container {
+            font-size: 20px;
+            color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: grid;
+            gap: 2vh;
+            padding: 1vh;
+        }
+
+        /* TODO: Assign grid-areas to the elements below (header, nav, main, aside, footer) */
+        header { background-color: aqua; grid-area: header; padding: 2vh;}
+        nav { background-color: var(--secondary-color); grid-area: nav;}
+        main { background-color: var(--primary-color); grid-area: main; padding: 2vh;}
+        aside { background-color: lightseagreen; grid-area: aside; padding: 2vh; border: 5px dashed blue;}
+        footer { background-color: slategray; grid-area: footer; padding: 2vh;}
+
+        /* TODO: Create a MEDIA QUERY for screens WIDER than 550px */
+        /* Change the grid-template-areas to the 3-column "Holy Grail" layout */
+        @media screen and (min-width: 550px) {
+            .container {
+                height: 100vh; 
+                grid-template-areas:
+                    "header header header"
+                    "nav main aside"
+                    "footer footer footer";
+                grid-template-rows: 1fr 4fr 1fr;
+                grid-template-columns: 1fr 3fr 2fr;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header><h1>The Fisher King</h1></header>
+        <!-- CSS FLEXBOX NAVIGATION -->
+        <nav>
+            <ul>
+                <li><a href="https://github.com/bengal865/web-year/blob/main/web-07-lab-holy-grail.html">Holy Grail</a></li>
+                <li><a href="https://images.uncyclomedia.co/uncyclopedia/en/thumb/d/d7/Winnniethepoohfather.jpg/350px-Winnniethepoohfather.jpg">Father</a></li>
+                <li><a href="https://en.uncyclopedia.co/wiki/AAAAAAAAA!">Link A</a></li>
+                <li><a href="https://en.uncyclopedia.co/wiki/Terry_Gilliam">Fissure King</a></li>
+            </ul>
+        </nav>
+
+        <main>Main Content</main>
+        <aside>Sidebar</aside>
+        <footer>Footer</footer>
+    </div>
+</body>
+</html>
